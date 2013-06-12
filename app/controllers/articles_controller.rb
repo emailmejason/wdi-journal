@@ -20,8 +20,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-      redirect_to articles_path
+      redirect_to articles_path, :notice => "You did it! Nice article."
     else
+      flash.now[:alert] = "FAIL."
       render :new
       # In Sinatra, it would be `erb :new`.
     end
