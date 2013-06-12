@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  # Apply to all: Only show up if user is logged in.
+
   def index
     @articles = Article.all
     session[:visitor_name] = "Paul"
@@ -9,14 +11,17 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    # Only show up if user is logged in.
     @article = Article.new
   end
 
   def edit
+    # Only show up if user is logged in.
     @article = Article.find(params[:id])
   end
 
   def create
+    # Only work if user is logged in.
     @article = Article.new(params[:article])
 
     if @article.save
@@ -29,6 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    # Only work if user is logged in.
     @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])
@@ -40,6 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    # Only show up if user is logged in.
     @article = Article.find(params[:id])
 
     @article.destroy

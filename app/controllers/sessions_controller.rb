@@ -13,4 +13,9 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    session[:author_id] = nil
+    redirect_to root_path, :notice => "Okay, you're logged out."
+  end
 end
