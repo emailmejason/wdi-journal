@@ -1,4 +1,8 @@
 Journal::Application.routes.draw do
+  match "signup" => 'authors#new', :as => "signup"
+  match "login" => 'sessions#new', :as => "login"
+  match "logout" => 'sessions#destroy', :as => "logout"
+
   resources :sessions, :except => [:edit, :update, :index]
   resources :authors
   resources :articles
