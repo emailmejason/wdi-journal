@@ -1,4 +1,5 @@
 Journal::Application.routes.draw do
+  resources :sessions, :except => [:edit, :update, :index]
   resources :authors
   resources :articles
 

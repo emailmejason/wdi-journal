@@ -11,6 +11,7 @@
 
 <div class="container">
   <%= link_to "Signup", new_author_path %>
+  <%= link_to "Log in", new_session_path %>
 
   <% unless flash[:notice].blank? %>
     <p id="flash_notice"><%= flash[:notice] %></p>
