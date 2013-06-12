@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: journal_development
+  pool: 5
+  username: sumeetjain
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: journal_test
+  pool: 5
+  username: sumeetjain
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: journal_production
+  pool: 5
+  username: sumeetjain
+  password:
