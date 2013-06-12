@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+    session[:visitor_name] = "Paul"
   end
 
   def show
