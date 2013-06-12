@@ -1,20 +1,6 @@
 Journal::Application.routes.draw do
-  # This builds all 7 RESTful routes. The same thing we did manually
-  # below for the Article routes.
   resources :authors
-
-  # Defaults to 'get'.
-  match "articles/index"
-
-  get "article/:id" => "articles#show"
-
-  get "articles/new" => "articles#new"
-  post "articles/create"
-
-  get "articles/edit/:id" => 'articles#edit'
-  put "articles/update/:id" => 'articles#update'
-
-  delete "articles/delete/:id" => 'articles#destroy'
+  resources :articles
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

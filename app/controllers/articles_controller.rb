@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-      redirect_to "/articles/index"
+      redirect_to articles_path
     else
       render :new
       # In Sinatra, it would be `erb :new`.
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])
-      redirect_to "/articles/index"
+      redirect_to articles_path
     else
       render :edit
       # In Sinatra, it would be `erb :edit`.
@@ -42,6 +42,6 @@ class ArticlesController < ApplicationController
 
     @article.destroy
 
-    redirect_to "/articles/index"
+    redirect_to articles_path
   end
 end

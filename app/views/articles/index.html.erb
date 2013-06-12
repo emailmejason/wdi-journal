@@ -3,8 +3,12 @@
 
 <% @articles.each do |article| %>
   <p>
-    <%= link_to(article.title, "/article/#{article.id}") %> -
-    <%= link_to("Edit", "/articles/edit/#{article.id}") %> -
-    <%= link_to("Delete", "/articles/delete/#{article.id}", :method => :delete) %>
+    <%= link_to(article.title, article_path(article.id)) %> -
+    <%= link_to("Edit", edit_article_path(article.id)) %> -
+    <%= link_to("Delete", article_path(article.id), :method => :delete) %>
   </p>
 <% end %>
+
+<p>
+<%= link_to "New Article", new_article_path %>
+</p>
