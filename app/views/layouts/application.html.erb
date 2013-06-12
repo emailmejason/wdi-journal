@@ -10,6 +10,8 @@
 <body>
 
 <div class="container">
+  <%= link_to "Signup", new_author_path %>
+
   <% unless flash[:notice].blank? %>
     <p id="flash_notice"><%= flash[:notice] %></p>
   <% end %>
