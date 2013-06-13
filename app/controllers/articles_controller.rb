@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  require "open-uri"
+
   skip_before_filter :require_authentication, :only => [:index, :show]
   # Apply to all: Only show up if user is logged in.
 
@@ -24,6 +26,16 @@ class ArticlesController < ApplicationController
   def create
     # Only work if user is logged in.
     @article = Article.new(params[:article])
+
+    if @article.content.blank?
+      # Fetches content related to the title of the article
+      # from Wikipedia (http://en.wikipedia.org/wiki/USA).
+      wiki_content = Nokogiri::HTML(open("http://en.wikipedia.org/wiki/#{@article.title}"))
+
+      wiki_content = wiki_content.css("#mw-content-text p")[0].content
+
+      @article.content = wiki_content
+    end
 
     if @article.save
       redirect_to articles_path, :notice => "You did it! Nice article."
