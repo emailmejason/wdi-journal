@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :require_authentication
+  before_filter :setup_twilio_client
 
   def current_author
     if session[:author_id]
@@ -22,4 +23,28 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, :alert => "You must be logged in."
     end
   end
+
+  def setup_twilio_client
+    if @twilio_client.nil?
+      @twilio_client = Twilio::REST::Client.new(
+        "secret-gibberish-123",
+        "secret-gibberish-456"
+      )
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

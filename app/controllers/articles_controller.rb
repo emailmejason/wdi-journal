@@ -35,6 +35,12 @@ class ArticlesController < ApplicationController
       wiki_content = wiki_content.css("#mw-content-text p")[0].content
 
       @article.content = wiki_content
+
+      @twilio_client.account.sms.messages.create(
+        :from => '+18582076374',
+        :to => '+18587742345',
+        :body => "#{@article.title} article added with Wikipedia content."
+      )
     end
 
     if @article.save
