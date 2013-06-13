@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  skip_before_filter :require_authentication, :only => [:index, :show]
   # Apply to all: Only show up if user is logged in.
 
   def index

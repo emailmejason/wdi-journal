@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :require_authentication
+
   def current_author
     if session[:author_id]
       @current_author = Author.find(session[:author_id])
@@ -14,4 +16,10 @@ class ApplicationController < ActionController::Base
   # controller method as a helper method as well. So now we can use
   # `current_author` in views.
   helper_method :current_author
+
+  def require_authentication
+    if current_author.nil?
+      redirect_to root_path, :alert => "You must be logged in."
+    end
+  end
 end

@@ -1,6 +1,8 @@
 # All of this is built automatically via the `rails generate scaffold...` command:
 
 class AuthorsController < ApplicationController
+  skip_before_filter :require_authentication, :only => [:new, :create]
+
   # GET /authors
   # GET /authors.json
   def index
