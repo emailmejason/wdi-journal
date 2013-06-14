@@ -5,7 +5,10 @@
 .test{
   display: none
 }
-
+#flash_notice,
+#flash_alert{
+  font-size:24px;
+}
 #flash_notice{
   color: green;
 }
