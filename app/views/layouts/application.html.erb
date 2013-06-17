@@ -8,19 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div>
-  <h1>Jane's Amazing Changes!! Woot Woot!</h1>
-</div>
-
-<div>
-  <h2>Something else</h2>
-</div>
-
-<div>
-  <h3>Something else else</h3>
-</div>
-
-  <p>We're ALL Awesome. But I'm the best.</p>
 
 <div class="container">
   <% if current_author %>
@@ -43,7 +30,8 @@
   <% end %>
 
   <%= yield %>
+
+  <footer>&copy; 2013 &ndash; Sumeet & Co.</footer>
 </div>
-<footer>&copy; 2013 &ndash; Sumeet & Co.</footer>
 </body>
 </html>
