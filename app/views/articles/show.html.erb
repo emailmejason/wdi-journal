@@ -5,4 +5,8 @@
 
 <p><%= @article.content %></p>
 
-<p>P.S. The visitor's name is <%= session[:visitor_name] %></p>
+<h2>Comments</h2>
+
+<% @article.comments.each do |comment| %>
+  <p><%= comment.content %> by <%= comment.commentor_name %></p>
+<% end %>

@@ -5,7 +5,10 @@ Journal::Application.routes.draw do
 
   resources :sessions, :except => [:edit, :update, :index]
   resources :authors
-  resources :articles
+
+  resources :articles do
+    resources :comments
+  end
 
   root :to => 'articles#index'
 
