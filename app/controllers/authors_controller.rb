@@ -38,6 +38,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
+    require_admin_authentication
     @author = Author.find(params[:id])
   end
 

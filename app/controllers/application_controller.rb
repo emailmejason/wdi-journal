@@ -24,6 +24,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin_authentication
+    if !current_author.nil? && !current_author.is_admin?
+      redirect_to root_path, :alert => "You must be logged in as an admin."
+    end
+  end
+
   def setup_twilio_client
     if @twilio_client.nil?
       @twilio_client = Twilio::REST::Client.new(
