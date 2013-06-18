@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:signed_up] = "signed up on %B %d at %I:%M %p"
